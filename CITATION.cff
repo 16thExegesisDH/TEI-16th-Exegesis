@@ -1,0 +1,40 @@
+cff-version: 1.0.0
+message: "If you use this dataset, please cite this repository as below."
+title: "TEI dataset for 16th century Exegesis of  Paul"
+abstract: >-
+  EI dataset for 16th century Exegesis of  Paul.
+type: dataset
+authors:
+  - family-names: Goy
+    given-names: Floriane
+    affiliation: University of Geneva
+    orcid: 0009-0005-9944-035X
+  - family-names: Colombo
+    given-names: Matteo
+    affiliation: University of Geneva
+  - family-names: Schürmann
+    given-names: Noemi
+    affiliation: University of Zürich
+    orcid: 0009-0005-9812-7169
+  - family-names: Manig
+    given-names: Benjamin
+    affiliation:  University of Zürich
+    orcid: 0009-0009-0879-4080
+  - family-names: Krauter
+    given-names: Stefan
+    affiliation: University of Zurich
+    orcid: 0000-0002-4932-9224
+  - family-names: Zahnd
+    given-names: Ueli
+    affiliation: University of Geneva
+    orcid: 0000-0002-6129-1687
+repository-code: 'https://github.com/16thExegesisDH/TEI-16th-Exegesis'
+url: 'https://github.com/16thExegesisDH/TEI-16th-Exegesis'
+keywords:
+  - TEI
+  - latin
+  - modern
+  - prints
+license: CC-BY-4.0
+version: "1.0"
+date-released: 2026-25-02
