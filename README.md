@@ -26,6 +26,7 @@ Project GitHub: https://github.com/16thExegesisDH
 
 Project prototype website: https://16thexegesisdh.github.io/ReformingPaul/  
   * migration  on Teipublisher-app : **summer 2026**
+
 Database:  https://ihr-num.unige.ch/rrp/
 
 
