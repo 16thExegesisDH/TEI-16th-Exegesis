@@ -8,7 +8,7 @@
    <teiHeader>
       <fileDesc>
          <titleStmt>
-            <title>ODD of the project : 16th centuries exegesis of  Paul, by Floriane Goy</title>
+            <title>ODD for the project : 16th centuries exegesis of  Paul, by Floriane Goy</title>
             <author xml:id="FG">Floriane Goy</author>
          </titleStmt>
          <publicationStmt>
@@ -19,6 +19,10 @@
                <addrLine>CH-1211 Genève</addrLine>
             </address>
             <authority>Theologische und Religionswissenschaftliche Fakultät, Universität Zürich UZH</authority>
+            <address>
+               <addrLine>Kirchgasse 9</addrLine>
+               <addrLine>8001 Zürich</addrLine>
+            </address>
             <availability status="restricted" n="CC-BY">
                <licence target="https://creativecommons.org/licenses/by/4.0/"/>
                <p>Creative Commons Attribution 4.0 CC BY 4.0</p>
@@ -742,9 +746,9 @@
                      <attDef ident="source" mode="delete"/>
                      <attDef ident="type" mode="change">
                         <valList mode="add" type="closed">
-                           <valItem ident="MarginTextZone"/>
-                           <valItem ident="MarginTextZone:handwrittenAddition"/>
-                           <valItem ident="TableZone"/>
+                        <valItem ident="MarginTextZone-Note"/>
+                             <!-- <valItem ident="MarginTextZone:handwrittenAddition"/>
+                           <valItem ident="TableZone"/> -->
                         </valList>
                      </attDef>
                      <attDef ident="place" mode="change">
@@ -837,7 +841,7 @@
                   <constraintSpec ident="publisher_check" scheme="schematron">
                      <constraint>
                         <sch:rule context="tei:publisher">
-                           <sch:assert test="contains(.,'Projet SETAF')">The publisher is "Projet SETAF"</sch:assert>
+                           <sch:assert test="contains(.,'16th centuries exegesis of  Paul,')">16th centuries exegesis of  Paul,</sch:assert>
                         </sch:rule>
                      </constraint>
                   </constraintSpec> 
@@ -878,8 +882,8 @@
                      <attDef ident="subtype" mode="delete"/>
                      <attDef ident="type" mode="change">
                         <valList mode="add" type="closed">
-                           <valItem ident="intermediary"/>
-                           <valItem ident="advanced"/>
+                           <valItem ident="contemporary"/> <!--faire un lissage -->
+                           <valItem ident="normalized"/>
                         </valList>
                      </attDef>
                   </attList>
@@ -1032,9 +1036,16 @@
                      <attDef ident="source" mode="delete"/>
                      <attDef ident="type" mode="change">
                         <valList mode="add" type="closed">
-                           <valItem ident="MainZone"/>
-                           <valItem ident="TitlePageZone"/>
+                           <valItem ident="RunningTitleZone"/>
+                           <valItem ident="GraphicZone"/>
+                           <valItem ident="MainZone:Head"/>
+                            <valItem ident="MainZone:P"/>
+                           <valItem ident="MainZone:Continued"/>
+                           <valItem ident="NumberingZone"/>
                            <valItem ident="DropCapitalZone"/>
+                           <valItem ident="QuireMarkZone"/>
+                           <valItem ident="MarginTextZone-Note"/>
+                           <!-- ajouter le MainZone:P-Continued de l'ancien dataset ? -->
                         </valList>
                      </attDef>
                      <attDef ident="subtype" mode="delete"/>
@@ -1375,29 +1386,29 @@
                      <attDef ident="subtype" mode="delete"/>
                   </attList>
                </elementSpec>
-               <!-- Checking element "zone" -->
+               <!-- Checking element "zone" --> <!-- continuer peut-être enlever les valeurs non utiliser? -->
                <elementSpec ident="zone" mode="change">
                   <attList>
                      <attDef ident="cert" mode="delete"/>
                      <attDef ident="resp" mode="delete"/>
                      <attDef ident="type" mode="change">
                         <valList mode="add" type="closed">
-                           <valItem ident="DamageZone"/>
+                          <!-- <valItem ident="DamageZone"/>
+                         <valItem ident="InterlinearLine"/>
+                         <valItem ident="StampZone"/>
+                        <valItem ident="TableZone"/> -->
                            <valItem ident="DefaultLine"/>
                            <valItem ident="DropCapitalLine"/>
+                           <valItem ident="HeadingLine"/>
                            <valItem ident="DropCapitalZone"/>
                            <valItem ident="GraphicZone"/>
-                           <valItem ident="HeadingLine"/>
-                           <valItem ident="InterlinearLine"/>
-                           <valItem ident="CustomLine:Faits"/>
-                           <valItem ident="MainZone"/>
-                           <valItem ident="MarginTextZone"/>
-                           <valItem ident="MarginTextZone:handwrittenAddition"/>
+                           <valItem ident="MainZone:Head"/>
+                           <valItem ident="MainZone:Continued"/>
+                           <valItem ident="MainZone:P"/>
+                           <valItem ident="MarginTextZone-Note"/>
                            <valItem ident="NumberingZone"/>
                            <valItem ident="QuireMarksZone"/>
                            <valItem ident="RunningTitleZone"/>
-                           <valItem ident="StampZone"/>
-                           <valItem ident="TableZone"/>
                            <valItem ident="TitlePageZone"/>
                         </valList>
                      </attDef>
