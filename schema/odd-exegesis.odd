@@ -8,7 +8,7 @@
    <teiHeader>
       <fileDesc>
          <titleStmt>
-            <title>ODD for the project : 16th centuries exegesis of  Paul, by Floriane Goy</title>
+            <title>ODD for the project:16th centuries exegesis of Paul,by Floriane Goy</title>
             <author xml:id="FG">Floriane Goy</author>
          </titleStmt>
          <publicationStmt>
@@ -1038,13 +1038,18 @@
                         <valList mode="add" type="closed">
                            <valItem ident="RunningTitleZone"/>
                            <valItem ident="GraphicZone"/>
-                           <valItem ident="MainZone:Head"/>
-                            <valItem ident="MainZone:P"/>
-                           <valItem ident="MainZone:Continued"/>
+                           <valItem ident="MainZone-Head"/>
+                           <valItem ident="MainZone-Continued"/>
+                           <valItem ident="MainZone-Entry"/>
+                            <valItem ident="MainZone-P"/>
+                           <valItem ident="MainZone-P-Continued"/>
                            <valItem ident="NumberingZone"/>
                            <valItem ident="DropCapitalZone"/>
                            <valItem ident="QuireMarkZone"/>
+                           <valItem ident="MarginTextZone"/>
                            <valItem ident="MarginTextZone-Note"/>
+                           <valItem ident="MarginTextZone:ManuscriptAddendum"/>
+                           <valItem ident="MarginTextZone:handwrittenAddition"/>
                            <!-- ajouter le MainZone:P-Continued de l'ancien dataset ? -->
                         </valList>
                      </attDef>
