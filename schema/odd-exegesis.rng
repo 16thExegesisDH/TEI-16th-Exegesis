@@ -2213,9 +2213,11 @@ Measures]</a:documentation>
             <attribute name="unit">
                <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(unit) indicates the units used for the measurement, usually using the standard symbol for the desired units.</a:documentation>
                <choice>
-                  <value>total_images</value>
+                  <value>total_images_book</value>
                   <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
-                  <value>processed_images</value>
+                  <value>total_images_commentary</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <value>processed_images_commentary</value>
                   <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
                </choice>
             </attribute>
@@ -2383,9 +2385,9 @@ Measures]</a:documentation>
                <choice>
                   <value>MarginTextZone</value>
                   <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
-                  <value>MarginTextZone:ManuscriptAddendum</value>
+                  <value>MarginTextZone-ManuscriptAddendum</value>
                   <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
-                  <value>MarginTextZone:handwrittenAddition</value>
+                  <value>MarginTextZone-handwrittenAddition</value>
                   <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
                   <value>MarginTextZone-Notes</value>
                   <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
@@ -2681,9 +2683,9 @@ Elements 7.2.5. Speech Contents]</a:documentation>
             <attribute name="type">
                <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">classifies the title according to some convenient typology.</a:documentation>
                <choice>
-                  <value>complete_title</value>
+                  <value>book_title</value>
                   <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
-                  <value>short_title</value>
+                  <value>commentary_title</value>
                   <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
                </choice>
             </attribute>
@@ -2753,7 +2755,7 @@ Elements 7.2.5. Speech Contents]</a:documentation>
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
                       xmlns:xi="http://www.w3.org/2001/XInclude"
                       context="tei:publisher">
-               <sch:assert test="contains(.,'Projet SETAF')">The publisher is "Projet SETAF"</sch:assert>
+               <sch:assert test="contains(.,'16th Century Exegesis of Paul')">The publisher is "16th Century Exegesis of Paul"</sch:assert>
             </sch:rule>
          </pattern>
          <ref name="att.global.attribute.xmlid"/>
@@ -4879,9 +4881,9 @@ Elements 7.2.5. Speech Contents]</a:documentation>
                   <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
                   <value>MarginTextZone</value>
                   <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
-                  <value>MarginTextZone:ManuscriptAddendum</value>
+                  <value>MarginTextZone-ManuscriptAddendum</value>
                   <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
-                  <value>MarginTextZone:handwrittenAddition</value>
+                  <value>MarginTextZone-handwrittenAddition</value>
                   <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
                   <value>MarginTextZone-Notes</value>
                   <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
