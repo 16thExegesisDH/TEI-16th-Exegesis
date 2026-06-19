@@ -3,8 +3,8 @@
 <?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_odds.rng" type="application/xml"
 	schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0"
-   xmlns:xi="http://www.w3.org/2001/XInclude"
-     xmlns:sch="http://purl.oclc.org/dsdl/schematron">
+  xmlns:xi="http://www.w3.org/2001/XInclude"
+  xmlns:sch="http://purl.oclc.org/dsdl/schematron">
    <teiHeader>
       <fileDesc>
          <titleStmt>
@@ -377,6 +377,8 @@
                         <elementRef key="publisher" minOccurs="1" maxOccurs="1"/>
                         <elementRef key="authority" minOccurs="1" maxOccurs="1"/>
                         <elementRef key="address" minOccurs="1" maxOccurs="1"/>
+                        <elementRef key="authority" minOccurs="1" maxOccurs="1"/>
+                        <elementRef key="address" minOccurs="1" maxOccurs="1"/>
                         <elementRef key="availability" minOccurs="1" maxOccurs="1"/>
                         <elementRef key="date" minOccurs="1" maxOccurs="1"/>
                      </sequence>
@@ -708,8 +710,9 @@
                   <attList>
                      <attDef ident="unit" mode="change">
                         <valList mode="add" type="closed">
-                           <valItem ident="total_images"/>
-                           <valItem ident="processed_images"/>
+                           <valItem ident="total_images_book"/>
+                           <valItem ident="total_images_commentary"/>
+                           <valItem ident="processed_images_commentary"/>
                         </valList>
                      </attDef>
                      <attDef ident="type" mode="delete"/>
@@ -746,7 +749,7 @@
                      <attDef ident="source" mode="delete"/>
                      <attDef ident="type" mode="change">
                         <valList mode="add" type="closed">
-                        <valItem ident="MarginTextZone-Note"/>
+                        <valItem ident="MarginTextZone-Notes"/>
                              <!-- <valItem ident="MarginTextZone:handwrittenAddition"/>
                            <valItem ident="TableZone"/> -->
                         </valList>
@@ -841,7 +844,7 @@
                   <constraintSpec ident="publisher_check" scheme="schematron">
                      <constraint>
                         <sch:rule context="tei:publisher">
-                           <sch:assert test="contains(.,'16th centuries exegesis of  Paul,')">16th centuries exegesis of  Paul,</sch:assert>
+                           <sch:assert test="contains(.,'16th centuries exegesis of  Paul')">16th centuries exegesis of  Paul</sch:assert>
                         </sch:rule>
                      </constraint>
                   </constraintSpec> 
@@ -1006,8 +1009,8 @@
                   <attList>
                      <attDef ident="type" mode="change">
                         <valList mode="add" type="closed">
-                           <valItem ident="complete_title"/>
-                           <valItem ident="short_title"/>
+                           <valItem ident="book_title"/>
+                           <valItem ident="commentary_title"/>
                         </valList>
                      </attDef>
                      <attDef ident="level" mode="delete"/>
@@ -1386,11 +1389,13 @@
                         <valList mode="add" type="closed">
                            <valItem ident="DefaultLine"/>
                            <valItem ident="DropCapitalZone"/>
+                           <valItem ident="DropCapitalLine"/>
                            <valItem ident="GraphicZone"/>
-                           <valItem ident="MainZone:Head"/>
-                           <valItem ident="MainZone:Continued"/>
-                           <valItem ident="MainZone:P"/>
-                           <valItem ident="MarginTextZone-Note"/>
+                           <valItem ident="MainZone-Head"/>
+                           <valItem ident="MainZone-Continued"/>
+                           <valItem ident="MainZone-P"/>
+                           <valItem ident="MarginTextZone-Notes"/>
+                           <valItem ident="MarginTextZone"/>
                            <valItem ident="NumberingZone"/>
                            <valItem ident="QuireMarksZone"/>
                            <valItem ident="RunningTitleZone"/>
