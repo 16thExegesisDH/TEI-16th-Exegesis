@@ -1,0 +1,70 @@
+/* Page Numbering */
+.numberingzone {
+    display: inline-block;
+    margin-left: 4pt;
+    color: grey;
+    float: right;
+    background: ghostwhite;
+}
+.numberingzone::before { content: '[p. '; }
+.numberingzone::after  { content: ']'; }
+.numberingzone:empty {
+    display: none;
+}
+
+/* Quire Marks */
+.quiremark {
+    display: none;
+}
+
+/* paragraphe */
+
+.ab-block {
+    clear: none;
+    text-align: justify;
+}
+
+
+
+.lettrine {
+  float: left;
+  font-size: 3em;
+  line-height: 0.85;
+  padding-right: 0.03em;
+  font-weight: bold;
+  transform: translateY(0.25em); /* fait descendre la lettrine */
+}
+
+/* title costum */
+
+.introduction-title-label::before { content: '['; }
+.introduction-title-label::after  { content: ']'; }
+
+.chapter-title {
+  text-align: center;
+  margin: 2em 0 1em 0;
+  font-weight: bold;
+}
+
+.section-title {
+  display: block;
+  margin: 1em 0;      /* espace avant et après */
+  font-weight: bold;
+}
+
+.verse-commentary-unit {
+  margin: 1.6em 0;
+}
+
+.verse-block {
+  margin: 0 0 0.6em 0;
+  font-style: italic;
+  color: #333;
+}
+
+.commentary-block {
+  margin: 0 0 0.4em 0;
+  line-height: 1.6;
+  text-align: justify;
+  color: #000;
+}

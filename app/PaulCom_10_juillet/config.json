@@ -1,0 +1,39 @@
+{
+  "label" : "Paul's Commentaries",
+  "odds" : [ "PaulCom.odd" ],
+  "id" : "https://e-editiones.org/apps/PaulCom",
+  "defaults" : {
+    "address-by-id" : true,
+    "odd" : "PaulCom.odd"
+  },
+  "extends" : [ "base10", "theme-base10", "iiif" ],
+  "features" : {
+    "toc" : {
+      "collapse" : true,
+      "enabled" : true
+    },
+    "iiif" : {
+      "viewer" : "mirador",
+      "enabled" : true
+    }
+  },
+  "theme" : {
+    "logo" : {
+      "width" : "40px",
+      "image" : "../images/F_gd.png",
+      "height" : "40px"
+    },
+    "colors" : {
+      "palette" : "teal"
+    },
+    "splash" : {
+      "width" : "800px",
+      "image" : "../images/mortennui.png",
+      "height" : "800px"
+    }
+  },
+  "pkg" : {
+    "abbrev" : "PaulCom"
+  },
+  "description" : ""
+}

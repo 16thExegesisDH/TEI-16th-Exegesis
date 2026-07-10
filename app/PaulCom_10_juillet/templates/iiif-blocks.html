@@ -1,0 +1,116 @@
+<template>
+    [% template scripts %]
+    [% if ($context?isStatic or exists($context?doc)) and $context?features?iiif?enabled and $context?features?iiif?viewer = "mirador" %]
+    <script src="https://unpkg.com/mirador@latest/dist/mirador.min.js"/>
+    [% endif %]
+    [% endtemplate %]
+    [% template after %]
+    [% if ($context?isStatic or exists($context?doc)) and $context?features?iiif?enabled and $context?features?iiif?viewer = "mirador" %]
+    <div id="mirador-facsimile" style="height: 100%; width: 100%;"/>
+    <script>
+    (function () {
+        var docId = "[[ $context?doc?path ]]";
+        var contextPath = "[[ $context-path ]]";
+        var lastSectionId = null;
+
+        function syncMirador() {
+            var urlParams = new URLSearchParams(window.location.search);
+            var sectionId = urlParams.get('id');
+
+            // évite de tout recharger si rien n'a changé
+            if (sectionId === lastSectionId) {
+                return;
+            }
+            lastSectionId = sectionId;
+
+            var manifestEndpoint = contextPath + "/api/document/" + encodeURIComponent(docId) + "/manifest-url";
+            var pageEndpoint = sectionId
+                ? contextPath + "/api/document/" + encodeURIComponent(docId) + "/page-for-section?section=" + encodeURIComponent(sectionId)
+                : null;
+
+            Promise.all([
+                fetch(manifestEndpoint).then(function (r) { return r.json(); }),
+                pageEndpoint ? fetch(pageEndpoint).then(function (r) { return r.json(); }) : Promise.resolve(null)
+            ]).then(function (results) {
+                var manifestData = results[0];
+                var pageData = results[1];
+
+                if (!manifestData || !manifestData.manifest) {
+                    console.warn("Aucun manifeste IIIF trouvé pour ce document.");
+                    return;
+                }
+
+                var windowConfig = {
+                    "manifestId": manifestData.manifest,
+                    "view": "single"
+                };
+
+                if (pageData &amp;&amp; pageData.pageId) {
+                    var workIdMatch = manifestData.manifest.match(/\/i3f\/v(\d+)\/(\d+)\/manifest/);
+                    var numericPageId = pageData.pageId.replace(/^\D+/, '');
+                    if (workIdMatch &amp;&amp; numericPageId) {
+                        var iiifVersion = workIdMatch[1];
+                        var workId = workIdMatch[2];
+                        windowConfig.canvasId = "https://www.e-rara.ch/i3f/v" + iiifVersion + "/" + workId + "/canvas/" + numericPageId;
+                    }
+                }
+
+                // On détruit l'instance précédente et on reconstruit,
+                // plutôt que d'essayer de piloter l'état interne de Mirador.
+                var container = document.getElementById('mirador-facsimile');
+                if (container) {
+                    container.innerHTML = '';
+                }
+                window.__mirador_instance = Mirador.viewer({
+                    "id": "mirador-facsimile",
+                    "language": "fr",
+                    "selectedTheme": "light",
+                    "window": {
+                        "defaultView": "single",
+                        "panels": { "annotations": false }
+                    },
+                    "workspace": {
+                        "isWorkspaceAddVisible": false,
+                        "showZoomControls": true
+                    },
+                    "windows": [windowConfig]
+                });
+            }).catch(function (err) {
+                console.error("Erreur de chargement IIIF:", err);
+            });
+        }
+
+        // 1. Exécution initiale au chargement de la page
+        syncMirador();
+
+        // 2. Détection des navigations "silencieuses" (sans rechargement complet)
+        //    en interceptant history.pushState / replaceState, mécanisme standard
+        //    utilisé par les composants pb-* pour naviguer sans recharger la page.
+        (function (history) {
+            var origPushState = history.pushState;
+            var origReplaceState = history.replaceState;
+
+            function fireLocationChange() {
+                window.dispatchEvent(new Event('pb-location-change'));
+            }
+
+            history.pushState = function () {
+                var result = origPushState.apply(history, arguments);
+                fireLocationChange();
+                return result;
+            };
+            history.replaceState = function () {
+                var result = origReplaceState.apply(history, arguments);
+                fireLocationChange();
+                return result;
+            };
+            window.addEventListener('popstate', fireLocationChange);
+        })(window.history);
+
+        window.addEventListener('pb-location-change', syncMirador);
+    })();
+</script>
+    
+    [% endif %]
+    [% endtemplate %]
+</template>
